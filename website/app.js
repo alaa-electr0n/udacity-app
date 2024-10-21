@@ -26,6 +26,7 @@ async function getCountryWeather(postCode) {
       temp: data?.main?.temp,
       highTemp: data?.main['temp_max'],
       lowTemp: data?.main['temp_min'],
+      date: data?.dt,
     };
 
     updateUI(cityData);

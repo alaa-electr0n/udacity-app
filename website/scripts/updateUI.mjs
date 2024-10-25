@@ -10,7 +10,8 @@ export default function updateUI(obj) {
   "weatherIcon": "01d",
   "temp": 21.11,
   "highTemp": 22.95,
-  "lowTemp": 19.27
+  "lowTemp": 19.27,
+  dt: 1657466630,
 }
   */
 

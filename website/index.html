@@ -3,9 +3,93 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./assets/weather-unsplash.ico" rel="icon" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles/main.css" />
     <title>Weather Journal</title>
   </head>
   <body>
+    <div class="container">
+      <header class="header">
+        <div class="theme-switcher">
+          <input type="radio" id="sun" name="theme" checked />
+          <label for="sun"><i class="fa-solid fa-sun fa-lg"></i></label>
+          <input type="radio" id="moon" name="theme" />
+          <label for="moon"><i class="fa-solid fa-moon fa-lg"></i></label>
+        </div>
+
+        <h1 class="heading">Weather App Journal</h1>
+      </header>
+      <main class="main">
+        <form class="form">
+          <input
+            type="text"
+            id="zip"
+            placeholder="Enter zip code here, ex: 10025"
+          />
+          <textarea
+            name="feelings"
+            id="feelings"
+            placeholder="Enter your feelings here"
+            rows="2"
+            cols="10"
+          ></textarea>
+
+          <button id="generate" type="submit">Generate</button>
+        </form>
+
+        <section class="output output--show">
+          <div class="output__temperature--container">
+            <div class="output__temperature--actual">
+              <h2 class="output__temperature--number heading-2">
+                89.5 <span class="output__temperature--unit"> &#8457;</span>
+              </h2>
+              <img class="output__temperature--icon" src="./assets/01d.png" />
+            </div>
+            <p class="output__temperature--description">Sunny</p>
+            <div class="output__temperature--range">
+              <p class="output__temperature--min">
+                80 <span class="output__temperature--unit"> &#8457;</span>
+              </p>
+              <p>&mdash;</p>
+              <p class="output__temperature--max">
+                100 <span class="output__temperature--unit"> &#8457;</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="output__feeling--container">
+            <p class="output__feeling--day">
+              Today is
+              <span class="output__feeling--date focus">
+                Friday 25 October 2024</span
+              >
+              and I feel
+              <span class="output__feeling--feelings focus">Happy</span>, It's
+              <span class="output__feeling--weather focus">Sunny</span> out
+              there, and I'm deeply sure it's gonna be a good day.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
     <script src="app.js" type="module"></script>
   </body>
 </html>

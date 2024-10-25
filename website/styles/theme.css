@@ -1,0 +1,174 @@
+:root {
+  /* font families */
+
+  --body-font: 'Merriweather', serif;
+
+  /* font sizes */
+  --title-text-size: 4rem;
+  --header-text-size: 3.6rem;
+  --description-text-size: 2.1rem;
+  --default-text-size: 1.8rem;
+  --small-text-size: 1.4rem;
+
+  /* spaces */
+  --space-4: 0.4rem;
+  --space-8: 0.8rem;
+  --space-12: 1.2rem;
+  --space-16: 1.6rem;
+  --space-24: 2.4rem;
+  --space-32: 3.2rem;
+  --space-36: 3.6rem;
+
+  --border-raduis-small: 15px;
+  --border-raduis-lg: 50px;
+
+  /* colors */
+  /* light theme */
+
+  --color-midnight-100: #f8fcff;
+  --color-midnight-150: #f5f7ff;
+  --color-midnight-200: #e8ecff;
+  --color-midnight-250: #cfdeff;
+  --color-midnight-300: #b8c3f5;
+  --color-midnight-350: #9da8d9;
+  --color-midnight-400: #7f8dc4;
+  --color-midnight-450: #6777af;
+  --color-midnight-550: #4b5c92;
+  --color-midnight-600: #3e5189;
+  --color-midnight-650: #2c3a63;
+  --color-midnight-700: #242f50;
+  --color-midnight-750: #1d2439;
+  --color-midnight-800: #171e32;
+  --color-midnight-850: #101524;
+  --color-midnight-900: #0c101c;
+  --color-saddle-100: #fffdfb;
+  --color-saddle-150: #fff9f4;
+  --color-saddle-200: #ffedde;
+  --color-saddle-250: #f2ddcc;
+  --color-saddle-300: #e3cbbc;
+  --color-saddle-350: #bba5a0;
+  --color-saddle-400: #a2898c;
+  --color-saddle-450: #867073;
+  --color-saddle-550: #6d585b;
+  --color-saddle-600: #604d4f;
+  --color-saddle-650: #524144;
+  --color-saddle-700: #463739;
+  --color-saddle-750: #392d2e;
+  --color-saddle-800: #2d2224;
+  --color-saddle-850: #21191a;
+  --color-saddle-900: #150f10;
+  --color-salmon-100: #fefcfb;
+  --color-salmon-150: #fdf8f6;
+  --color-salmon-200: #fbede8;
+  --color-salmon-250: #f7dbd1;
+  --color-salmon-300: #efb7a1;
+  --color-salmon-350: #e59472;
+  --color-salmon-400: #c67a5b;
+  --color-salmon-450: #ad6446;
+  --color-salmon-550: #8a4b30;
+  --color-salmon-600: #7c4026;
+  --color-salmon-650: #6a3620;
+  --color-salmon-700: #5a2d1a;
+  --color-salmon-750: #4b2414;
+  --color-salmon-800: #3b1c0e;
+  --color-salmon-850: #2d1308;
+  --color-salmon-900: #1e0b04;
+  --color-slate-100: #f3f5f7;
+  --color-slate-150: #f0f1f5;
+  --color-slate-200: #e4e6f1;
+  --color-slate-250: #cfd8ec;
+  --color-slate-300: #b8bfdd;
+  --color-slate-350: #9ea5c2;
+  --color-slate-400: #828bac;
+  --color-slate-450: #6b7597;
+  --color-slate-550: #505b7b;
+  --color-slate-600: #455172;
+  --color-slate-650: #313a52;
+  --color-slate-700: #282f42;
+  --color-slate-750: #1f2330;
+  --color-slate-800: #191d29;
+  --color-slate-850: #11151d;
+  --color-slate-900: #0d1017;
+  --color-stone-100: #fefcfb;
+  --color-stone-150: #f8f4f2;
+  --color-stone-200: #f4efed;
+  --color-stone-250: #e8e0dc;
+  --color-stone-300: #ccc4c0;
+  --color-stone-350: #b1aaa6;
+  --color-stone-400: #968f8c;
+  --color-stone-450: #7b7572;
+  --color-stone-550: #635d5a;
+  --color-stone-600: #57514f;
+  --color-stone-650: #4a4543;
+  --color-stone-700: #3e3a38;
+  --color-stone-750: #33302e;
+  --color-stone-800: #282523;
+  --color-stone-850: #1d1b1a;
+  --color-stone-900: #131110;
+
+  --bg-color: var(--color-saddle-300);
+  --text-color: var(--color-saddle-850);
+  --border-color: var(--color-saddle-350);
+  --input-bg-color: var(--color-salmon-200);
+  --primary-btn-bg-color: var(--color-salmon-400);
+  --output-text-color: var(--color-salmon-900);
+}
+
+:root:has(#moon:checked) {
+  color-scheme: dark;
+  --bg-color: var(--color-stone-800);
+  --text-color: var(--color-salmon-150);
+  --border-color: var(--color-stone-200);
+  --input-bg-color: var(--color-stone-850);
+  --primary-btn-bg-color: var(--color-midnight-600);
+  --output-text-color: var(--color-salmon-200);
+}
+
+.theme-switcher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-16);
+  border-radius: 100px;
+  position: relative;
+}
+
+.theme-switcher::before {
+  content: '';
+  position: absolute;
+  width: 8rem;
+  height: 4rem;
+  border-radius: 100px;
+  z-index: -4;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+}
+
+.theme-switcher input[type='radio'] {
+  display: none;
+}
+
+.theme-switcher label {
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.theme-switcher input[type='radio']:checked + label::before {
+  content: '';
+
+  position: absolute;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 100%;
+  z-index: -1;
+}
+.theme-switcher input#sun[type='radio']:checked + label::before {
+  background-color: var(--color-salmon-300);
+}
+
+.theme-switcher input#moon[type='radio']:checked + label::before {
+  background-color: var(--color-midnight-300);
+}

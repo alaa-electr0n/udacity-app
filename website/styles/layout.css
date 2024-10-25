@@ -1,0 +1,116 @@
+.container {
+  max-width: 85rem;
+  /* to be deleted after testing */
+  background-color: transparent;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-16);
+}
+
+.header {
+  height: 10dvh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+}
+
+.theme-switcher {
+  order: -1;
+}
+
+.main {
+  height: calc(95vh - 10dvh);
+  background: url(../assets/weather-1.jpg);
+  backdrop-filter: blur(25px);
+  background-size: cover;
+  background-position: center;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.main::before {
+  content: '';
+  position: absolute;
+  z-index: -44;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.15);
+  filter: blur(2px);
+}
+:root:has(#moon:checked) .main::before {
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.9));
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-12);
+  padding: var(--space-16);
+  border-radius: var(--border-raduis-lg);
+}
+
+.form input,
+.form textarea {
+  width: 50%;
+
+  background-color: var(--input-bg-color);
+  border-radius: var(--border-raduis-small);
+  border: none;
+  outline: none;
+  padding: var(--space-12);
+
+  transition-property: transform;
+  transform-origin: 50% 50% 0px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+.form input {
+  transform: scaleX(0.8);
+}
+
+.form textarea {
+  transform: scaleX(0.8) scaleY(0.8);
+}
+
+.form input:focus {
+  transform: scaleX(1);
+}
+
+.form textarea:focus {
+  transform: scaleX(1) scaleY(1);
+}
+
+.form input,
+.form textarea {
+  color: var(--text-color);
+  font-size: var(--default-text-size);
+  font-family: var(--body-font);
+  font-weight: 400;
+  position: relative;
+  z-index: 99;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.form button[type='submit'] {
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--border-raduis-small);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  background-color: var(--primary-btn-bg-color);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.form button[type='submit']:hover {
+  transform: scale(1.1);
+}

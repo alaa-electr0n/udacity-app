@@ -4,4 +4,5 @@ node_modules
 *.pyo
 *.so
 .temp
+.env
 *node_modules/*

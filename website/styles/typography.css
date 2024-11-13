@@ -6,6 +6,7 @@
   text-transform: capitalize;
   letter-spacing: 1.5px;
   flex: 1;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
 }
 
 .heading-2 {

@@ -1,7 +1,8 @@
 import { formatDate } from './utils.mjs';
+import { main } from './variables.mjs';
 export default function updateUI(obj) {
   const html = `
- <section class="output output--show">
+  <section class="output output--show">
           <div class="output__temperature--container">
             <div class="output__temperature--actual">
               <h2 class="output__temperature--number heading-2">
@@ -28,7 +29,11 @@ export default function updateUI(obj) {
               </p>
             </div>
           </div>
-
+          <div class="output__city--container">
+            <p class="output__city--name"">${
+              obj?.city
+            },<span class="output__city--country">${obj?.country}</span></p>
+          </div>
           <div class="output__feeling--container">
             <p class="output__feeling--day">
               Today is
@@ -46,7 +51,7 @@ export default function updateUI(obj) {
 
 `;
 
-  document.querySelector('main').insertAdjacentHTML('beforeend', html);
+  main.insertAdjacentHTML('beforeend', html);
 }
 
 /*

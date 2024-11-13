@@ -5,6 +5,7 @@ import {
   form,
 } from './scripts/variables.mjs';
 import updateUI from './scripts/updateUI.mjs';
+import { changeBackground } from './scripts/changeBackground.mjs';
 
 const WEATHER_BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 const WEATHER_APP_KEY = 'b447455f727309cb68eac061b13af2d4';
@@ -67,6 +68,7 @@ async function postDataToServer(url = '', data = {}) {
     const result = await response.json();
     updateUI(result); // Update UI with server response
     form.reset(); // reset the form fields
+    changeBackground(result?.weather?.toLowerCase()); // change the background acc. to weather
   } catch (error) {
     console.log('Error:', error);
   }

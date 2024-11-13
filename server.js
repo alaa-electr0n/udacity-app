@@ -15,11 +15,29 @@ app.use(bodyParser.json());
 const cors = require('cors');
 app.use(cors());
 
+const projectData = {};
 // Setup Server
 const port = 3000;
 
-//spin up the server
-const server = app.listen(port, listening);
+//initiate the main project folder which im calling website
+app.use(express.static('website'));
+
+// get the data on the server
+app.post('/addWeatherData', (req, res) => {
+  projectData.date = req.body.date;
+  projectData.temp = req.body.temp;
+  projectData.city = req.body.cityName;
+  projectData.country = req.body.country;
+  projectData.weather = req.body.weather;
+  projectData.weatherDesc = req.body.weatherDesc;
+  projectData.weatherIcon = req.body.weatherIcon;
+  projectData.highTemp = req.body.highTemp;
+  projectData.lowTemp = req.body.lowTemp;
+  projectData.feelings = req.body.feelings;
+
+  // send back the data to the frontend
+  res.json(projectData);
+});
 
 //callback function to debug
 function listening() {
@@ -27,5 +45,5 @@ function listening() {
   console.log(`running on localhost: ${port}`);
 }
 
-//initiate the main project folder which im calling website
-app.use(express.static('website'));
+//spin up the server
+const server = app.listen(port, listening);

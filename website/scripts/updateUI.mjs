@@ -68,6 +68,3 @@ export default function updateUI(obj) {
     "date": 1730783955
 }
   */
-
-//https://stackoverflow.com/questions/44177417/how-to-display-openweathermap-weather-icon
-//https://stackoverflow.com/questions/65746475/how-to-get-data-info-from-openweathermap-api-dt

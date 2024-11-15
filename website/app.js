@@ -28,6 +28,9 @@ async function collectData(e) {
     const postData = { ...weatherData, feelings };
     await postDataToServer('/addWeatherData', postData); // Send to server
   }
+
+  // Step 3: Fetch updated data from the server and update UI
+  fetchDataFromServer();
 }
 
 // Function to fetch weather data
@@ -65,11 +68,21 @@ async function postDataToServer(url = '', data = {}) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     });
-    const result = await response.json();
-    updateUI(result); // Update UI with server response
+
+    if (!response.ok) throw new Error('Network response was not ok');
     form.reset(); // reset the form fields
-    changeBackground(result?.weather?.toLowerCase()); // change the background acc. to weather
   } catch (error) {
     console.log('Error:', error);
+  }
+}
+
+async function fetchDataFromServer() {
+  try {
+    const response = await fetch('/getWeatherData');
+    const serverData = await response.json();
+    updateUI(serverData); // Update UI with data fetched from server
+    changeBackground(serverData?.weather?.toLowerCase()); // change the background acc. to weather
+  } catch (error) {
+    console.log('Error fetching data from server:', error);
   }
 }

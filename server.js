@@ -11,6 +11,8 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
+app.use(express.json());
+
 // CORS
 const cors = require('cors');
 app.use(cors());
@@ -36,6 +38,12 @@ app.post('/addWeatherData', (req, res) => {
   projectData.feelings = req.body.feelings;
 
   // send back the data to the frontend
+  res.json(projectData);
+});
+
+//  get routes to get stored Data to update the UI
+app.get('/getWeatherData', (req, res) => {
+  console.log('Sending data:', projectData);
   res.json(projectData);
 });
 
